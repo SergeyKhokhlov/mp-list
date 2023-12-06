@@ -98,7 +98,6 @@ TListIterator<T>::bool TListIterator<T>::operator!=(const TListIterator<T>& p) {
 
 template<class T>
 TListIterator<T>::void TListIterator<T>::PushAfter(T* a) {
-  if (a == nullptr) throw("error");
   TListNode<T>* cat = new TListNode<T>(cur->GetNext(), cur, a); 
   cur->SetNext(cat);
   cur->GetNext()->SetPrev(cat);
@@ -106,7 +105,6 @@ TListIterator<T>::void TListIterator<T>::PushAfter(T* a) {
 
 template<class T>
 TListIterator<T>::void TListIterator<T>::PushBefore(T* a) {
-  if (a == nullptr) throw("error");
   TListNode<T>* cat = new TListNode<T>(cur->GetPrev(), cur, a);
   cur->SetPrev(cat);
   cur->GetPrev()->SetNext(cat);
