@@ -79,7 +79,9 @@ TList<T>::void TList<T>::PushBegin(TListNode<T>* c) {
 
 template<class T>
 TList<T>::TList<T>::~TList() {
-	Clear();
+  begin = nullptr;
+  end = nullptr;
+  count = 0;
 }
 
 template<class T>
