@@ -40,22 +40,22 @@ TList<T>::TList(const TList<T>& p) {
   {
     // Copy the first node
     begin = new TListNode<T>(*p.begin);
-    TListNode<T>* temp = begin;
-    TListNode<T>* temp2 = p.begin->GetNext(); // Move to the next node in the source list
+    TListNode<T>* par = begin;
+    TListNode<T>* rap = p.begin->GetNext(); // Move to the next node in the source list
 
     // Copy the rest of the nodes
-    while (temp2 != p.begin)
+    while (rap != p.begin)
     {
       TListNode<T>* newNode = new TListNode<T>();
-      newNode->SetPrev(temp);
-      newNode->SetData(new T(*temp2->GetData()));
-      temp->SetNext(newNode);
-      temp = temp->GetNext();
-      temp2 = temp2->GetNext();
+      newNode->SetPrev(par);
+      newNode->SetData(new T(*rap->GetData()));
+      par->SetNext(newNode);
+      par = par->GetNext();
+      rap = rap->GetNext();
     }
 
     // Set the end node
-    end = temp;
+    end = par;
   }
 }
 
